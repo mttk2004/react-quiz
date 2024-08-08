@@ -48,11 +48,11 @@ body {
 }
 
 .app-header {
-  width: 66rem;
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 6rem;
 }
 
 .error {
@@ -65,7 +65,7 @@ body {
 }
 
 img {
-  width: 14rem;
+  width: 12rem;
 }
 
 h1 {

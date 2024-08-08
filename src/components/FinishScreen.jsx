@@ -7,7 +7,7 @@
  */
 
 
-export default function FinishScreen({ points, maxPoints, highScore }) {
+export default function FinishScreen({ dispatch, points, maxPoints, highScore }) {
 	const percentage = +(points / maxPoints * 100).toFixed(2);
 	const highPercentage = (highScore / maxPoints * 100).toFixed(2);
 	
@@ -22,6 +22,7 @@ export default function FinishScreen({ points, maxPoints, highScore }) {
 		<p className="result">
 			<span>{emoji}</span>You scored <strong>{points}</strong> out of {maxPoints} ({percentage}%)
 		</p>
-		<p className="highscore">(Record: {highScore} &mdash; {highPercentage}%)</p>
+		<p className="highscore">(Record: {highScore}/{maxPoints} points &mdash; {highPercentage}%)</p>
+		<button className="btn btn-ui" onClick={() => dispatch({ type: 'restart' })}>Restart quiz</button>
 	</>;
 }
