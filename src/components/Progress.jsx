@@ -6,8 +6,14 @@
  *  "Family is where life begins and love never ends."
  */
 
+import { useQuiz } from '../contexts/QuizContext.jsx';
 
-export default function Progress({ numQuestions, index, points, maxPoints }) {
+
+export default function Progress() {
+	const { questions, index, points } = useQuiz();
+	const numQuestions = questions.length;
+	const maxPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
+	
 	return <header className="progress">
 		<progress max={numQuestions} value={index} />
 		<p>Question <strong>{index + 1}</strong> / {numQuestions}</p>

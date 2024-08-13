@@ -6,8 +6,12 @@
  *  "Family is where life begins and love never ends."
  */
 
+import { useQuiz } from '../contexts/QuizContext.jsx';
 
-export default function Options({ question, answer, dispatch }) {
+
+export default function Options() {
+	const { questions, index, answer, dispatch } = useQuiz();
+	const question = questions[index];
 	const hasAnswered = answer !== null;
 	
 	return <div className="options">

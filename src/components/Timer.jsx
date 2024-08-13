@@ -5,10 +5,13 @@
  *  Author: Mai Tran Tuan Kiet
  *  "Family is where life begins and love never ends."
  */
+
 import { useEffect } from 'react';
+import { useQuiz }   from '../contexts/QuizContext.jsx';
 
 
-export default function Timer({ dispatch, secondsRemaining }) {
+export default function Timer() {
+	const { dispatch, secondsRemaining } = useQuiz();
 	const min = String(Math.floor(secondsRemaining / 60)).padStart(2, '0');
 	const sec = String(secondsRemaining - min * 60).padStart(2, '0');
 	
@@ -18,7 +21,7 @@ export default function Timer({ dispatch, secondsRemaining }) {
 		}, 1000);
 		
 		return () => clearInterval(id);
-	}, []);
+	}, [dispatch]);
 	
 	return <div className="timer">
 		{min}:{sec}

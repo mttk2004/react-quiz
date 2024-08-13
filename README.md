@@ -21,3 +21,5 @@ Loader, Error, StartScreen, Question, Options, NextButton, Progress, FinishScree
 
 ## Note:
 I create this webapp with the help of a tutorial from Teacher Jonas (https://github.com/jonasschmedtmann)
+
+Last update: 13/08/2024

@@ -6,12 +6,21 @@
  *  "Family is where life begins and love never ends."
  */
 
+import { useQuiz } from '../contexts/QuizContext.jsx';
 
-export default function NextButton({ answer, dispatch, numQuestions, index }) {
-	if (answer === null) return;
-	if (index < numQuestions - 1) return <button
-			className="btn btn-ui" onClick={() => dispatch({ type: 'nextQuestion' })}>
-		Next question
-	</button>;
-	return <button className="btn btn-ui" onClick={() => dispatch({ type: 'finish' })}>Finish</button>;
+
+export default function NextButton() {
+	const { answer, dispatch, questions, index } = useQuiz();
+	const numQuestions = questions.length;
+	
+	if (answer === null) return null;
+	
+	if (index < numQuestions - 1)
+		return <button
+				className="btn btn-ui" onClick={() => dispatch({ type: 'nextQuestion' })}>
+			Next question
+		</button>;
+	
+	return <button
+			className="btn btn-ui" onClick={() => dispatch({ type: 'finish' })}>Finish</button>;
 }

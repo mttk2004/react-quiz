@@ -6,8 +6,13 @@
  *  "Family is where life begins and love never ends."
  */
 
+import { useQuiz } from '../contexts/QuizContext.jsx';
 
-export default function Question({ question, children }) {
+
+export default function Question({ children }) {
+	const { questions, index } = useQuiz();
+	const question = questions[index];
+	
 	return <div>
 		<h4>{question.question}</h4>
 		{children}

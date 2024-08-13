@@ -6,7 +6,6 @@
  *  "Family is where life begins and love never ends."
  */
 
-
 export default function Footer({ children }) {
 	return <footer>{children}</footer>;
 }

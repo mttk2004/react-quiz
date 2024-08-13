@@ -6,8 +6,13 @@
  *  "Family is where life begins and love never ends."
  */
 
+import { useQuiz } from '../contexts/QuizContext.jsx';
 
-export default function FinishScreen({ dispatch, points, maxPoints, highScore }) {
+
+export default function FinishScreen() {
+	const { questions, dispatch, points, highScore } = useQuiz();
+	
+	const maxPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
 	const percentage = +(points / maxPoints * 100).toFixed(2);
 	const highPercentage = (highScore / maxPoints * 100).toFixed(2);
 	
@@ -23,6 +28,7 @@ export default function FinishScreen({ dispatch, points, maxPoints, highScore })
 			<span>{emoji}</span>You scored <strong>{points}</strong> out of {maxPoints} ({percentage}%)
 		</p>
 		<p className="highscore">(Record: {highScore}/{maxPoints} points &mdash; {highPercentage}%)</p>
-		<button className="btn btn-ui" onClick={() => dispatch({ type: 'restart' })}>Restart quiz</button>
+		<button className="btn btn-ui" onClick={() => dispatch({ type: 'restart' })}>Restart quiz
+		</button>
 	</>;
 }
