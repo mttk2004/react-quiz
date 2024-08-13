@@ -95,6 +95,10 @@ function QuizProvider({ children }) {
 				] = useReducer(reducer,
 											 initialState);
 	
+	// Derived states
+	const numQuestions = questions.length;
+	const maxPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
+	
 	useEffect(() => {
 		const fetchQuestions = async function () {
 			try {
@@ -114,7 +118,16 @@ function QuizProvider({ children }) {
 	
 	return <QuizContext.Provider
 			value={{
-				questions, status, index, answer, points, highScore, secondsRemaining, dispatch
+				questions,
+				status,
+				index,
+				answer,
+				points,
+				highScore,
+				secondsRemaining,
+				numQuestions,
+				maxPoints,
+				dispatch
 			}}>
 		{children}
 	</QuizContext.Provider>;

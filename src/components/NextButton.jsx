@@ -10,8 +10,7 @@ import { useQuiz } from '../contexts/QuizContext.jsx';
 
 
 export default function NextButton() {
-	const { answer, dispatch, questions, index } = useQuiz();
-	const numQuestions = questions.length;
+	const { answer, dispatch, index, numQuestions } = useQuiz();
 	
 	if (answer === null) return null;
 	

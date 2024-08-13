@@ -12,6 +12,7 @@ import { useQuiz }   from '../contexts/QuizContext.jsx';
 
 export default function Timer() {
 	const { dispatch, secondsRemaining } = useQuiz();
+	
 	const min = String(Math.floor(secondsRemaining / 60)).padStart(2, '0');
 	const sec = String(secondsRemaining - min * 60).padStart(2, '0');
 	

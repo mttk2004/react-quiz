@@ -10,9 +10,8 @@ import { useQuiz } from '../contexts/QuizContext.jsx';
 
 
 export default function FinishScreen() {
-	const { questions, dispatch, points, highScore } = useQuiz();
+	const { dispatch, points, maxPoints, highScore } = useQuiz();
 	
-	const maxPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
 	const percentage = +(points / maxPoints * 100).toFixed(2);
 	const highPercentage = (highScore / maxPoints * 100).toFixed(2);
 	

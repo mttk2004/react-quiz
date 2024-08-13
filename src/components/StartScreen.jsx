@@ -10,8 +10,7 @@ import { useQuiz } from '../contexts/QuizContext.jsx';
 
 
 export default function StartScreen() {
-	const { questions, dispatch } = useQuiz();
-	const numQuestions = questions.length;
+	const { dispatch, numQuestions } = useQuiz();
 	
 	return <div className="start">
 		<h2>Welcome to The React Quiz</h2>
